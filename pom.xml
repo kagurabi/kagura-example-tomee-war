@@ -10,6 +10,12 @@
     <packaging>war</packaging>
     <name>Kagura-war-rest</name>
 
+    <parent>
+        <groupId>com.kagurabi</groupId>
+        <artifactId>Kagura-bom</artifactId>
+        <version>1.10-SNAPSHOT</version>
+    </parent>
+
     <properties>
         <myfaces2.version>2.1.11</myfaces2.version>
         <myfaces.codi.version>1.0.5</myfaces.codi.version>
@@ -106,18 +112,6 @@
             <version>${jackson-core-asl.version}</version>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.kagurabi</groupId>
-                <artifactId>Kagura-bom</artifactId>
-                <version>1.10-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <finalName>kagura</finalName>
