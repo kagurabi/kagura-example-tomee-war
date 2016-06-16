@@ -12,7 +12,7 @@
 
     <parent>
         <groupId>com.kagurabi</groupId>
-        <artifactId>kagura-bom</artifactId>
+        <artifactId>Kagura-bom</artifactId>
         <version>1.10-SNAPSHOT</version>
     </parent>
 
@@ -70,7 +70,7 @@
         </dependency>
         <dependency>
             <groupId>com.kagurabi.example</groupId>
-            <artifactId>kagura-example-javascript</artifactId>
+            <artifactId>Kagura-example-javascript</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
             <type>war</type>
