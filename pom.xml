@@ -5,22 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kagurabi</groupId>
-    <artifactId>war-rest</artifactId>
+    <artifactId>kagura-example-tomee-war</artifactId>
     <version>1.10-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Kagura-war-rest</name>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.kagurabi</groupId>
-                <artifactId>Kagura-bom</artifactId>
-                <version>1.10-SNAPSHOT</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <name>kagura-example-tomee-war</name>
 
     <repositories>
         <repository>
@@ -33,7 +21,48 @@
         </repository>
     </repositories>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>Arran</id>
+            <name>Arran Ubels</name>
+            <email>arran@kagurabi.com</email>
+            <url>http://www.base2services.com/about/team.html</url>
+            <organization>base2Services</organization>
+            <organizationUrl>http://www.base2services.com/</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>+10</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:kagura/kagura-example-tomee-war.git</connection>
+        <developerConnection>scm:git:git@github.com:kagura/kagura-example-tomee-war.git</developerConnection>
+        <url>git@github.com:kagura/kagura-example-tomee-war.git</url>
+    </scm>
+
     <properties>
+        <java.version>1.8</java.version>
         <myfaces2.version>2.1.11</myfaces2.version>
         <myfaces.codi.version>1.0.5</myfaces.codi.version>
         <extval.version>2.0.7</extval.version>
@@ -43,17 +72,19 @@
         <javaee-api.version>6.0-6</javaee-api.version>
         <tomcat-jdbc.version>7.0.42</tomcat-jdbc.version>
         <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
+        <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
+        <maven-war-plugin.version>2.1.1</maven-war-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.kagurabi.shared</groupId>
-            <artifactId>reporting-core</artifactId>
+            <groupId>com.kagurabi</groupId>
+            <artifactId>kagura-core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.kagurabi.shared</groupId>
-            <artifactId>rest-api</artifactId>
+            <groupId>com.kagurabi</groupId>
+            <artifactId>kagura-rest-api</artifactId>
             <version>${project.version}</version>
             <exclusions>
                 <exclusion>
@@ -75,8 +106,8 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.kagurabi.example</groupId>
-            <artifactId>Kagura-example-javascript</artifactId>
+            <groupId>com.kagurabi</groupId>
+            <artifactId>kagura-example-javascript</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
             <type>war</type>
@@ -135,7 +166,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>${maven-war-plugin.version}</version>
                 <configuration>
                     <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
                 </configuration>
@@ -143,7 +174,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
